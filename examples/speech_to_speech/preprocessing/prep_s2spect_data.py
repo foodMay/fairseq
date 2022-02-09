@@ -143,7 +143,7 @@ def main():
     )
     parser.add_argument(
         "--data-split",
-        default=["train", "valid", "test"],
+        default=["train", "dev", "test"],
         nargs="+",
         help="data split names",
     )
