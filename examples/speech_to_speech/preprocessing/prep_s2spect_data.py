@@ -40,10 +40,14 @@ def prepare_target_data(args, tgt_audios):
     for tgt_audio in tqdm(tgt_audios):
         sample_id = tgt_audio.stem
         waveform, sample_rate = torchaudio.load(tgt_audio.as_posix())
+        # print(sample_rate) # 24000
+        # break
         waveform, sample_rate = convert_waveform(
             waveform, sample_rate, normalize_volume=args.normalize_volume,
             to_sample_rate=args.sample_rate
         )
+        # print(sample_rate) # 22050
+        # break
         extract_logmel_spectrogram(
             waveform, sample_rate, feature_root / f"{sample_id}.npy",
             win_length=args.win_length, hop_length=args.hop_length,

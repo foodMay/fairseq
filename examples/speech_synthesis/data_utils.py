@@ -48,7 +48,7 @@ def extract_logmel_spectrogram(
         output_path: Optional[Path] = None, win_length: int = 1024,
         hop_length: int = 256, n_fft: int = 1024,
         win_fn: callable = torch.hann_window, n_mels: int = 80,
-        f_min: float = 0., f_max: float = 8000, eps: float = 1e-5,
+        f_min: float = 20., f_max: float = 8000, eps: float = 1e-5,
         overwrite: bool = False, target_length: Optional[int] = None
 ):
     if output_path is not None and output_path.is_file() and not overwrite:
