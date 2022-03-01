@@ -223,6 +223,7 @@ class TextTargetMultitaskData(object):
 
     def __init__(self, args, split, tgt_dict):
         samples = SpeechToTextDatasetCreator._load_samples_from_tsv(args.data, split)
+        # print(samples[0])
         self.data = {s[self.KEY_ID]: s[self.KEY_TEXT] for s in samples}
         self.dict = tgt_dict
         self.append_eos = args.decoder_type != "ctc"

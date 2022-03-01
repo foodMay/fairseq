@@ -217,6 +217,7 @@ def parse_path(path: str) -> Tuple[str, List[int]]:
     else:
         _path, *slice_ptr = path.split(":")
         if not Path(_path).is_file():
+            # print(_path)
             raise FileNotFoundError(f"File not found: {_path}")
     assert len(slice_ptr) in {0, 2}, f"Invalid path: {path}"
     slice_ptr = [int(i) for i in slice_ptr]
