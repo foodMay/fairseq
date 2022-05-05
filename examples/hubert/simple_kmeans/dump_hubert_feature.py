@@ -12,7 +12,8 @@ import soundfile as sf
 import torch
 import torch.nn.functional as F
 
-from feature_utils import get_path_iterator, dump_feature
+# from feature_utils import get_path_iterator, dump_feature
+from examples.hubert.simple_kmeans.feature_utils import get_path_iterator, dump_feature
 
 
 logging.basicConfig(

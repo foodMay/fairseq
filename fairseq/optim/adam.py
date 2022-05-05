@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 @dataclass
 class FairseqAdamConfig(FairseqDataclass):
     adam_betas: Any = field(
-        default=(0.9, 0.999), metadata={"help": "betas for Adam optimizer"}
+        default=(0.9, 0.98), metadata={"help": "betas for Adam optimizer"} # (0.9,0.999) original
     )
     adam_eps: float = field(
         default=1e-8, metadata={"help": "epsilon for Adam optimizer"}

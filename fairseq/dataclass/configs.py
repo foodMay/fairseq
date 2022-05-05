@@ -461,7 +461,7 @@ class DatasetConfig(FairseqDataclass):
         default=None, metadata={"help": "maximum number of tokens in a batch"}
     )
     batch_size: Optional[int] = field(
-        default=None,
+        default=512, # None original
         metadata={
             "help": "number of examples in a batch",
             "argparse_alias": "--max-sentences",
@@ -507,7 +507,7 @@ class DatasetConfig(FairseqDataclass):
     )
 
     validate_interval: int = field(
-        default=1, metadata={"help": "validate every N epochs"}
+        default=106, metadata={"help": "validate every N epochs"}
     )
     validate_interval_updates: int = field(
         default=0, metadata={"help": "validate every N updates"}
@@ -575,7 +575,7 @@ class DatasetConfig(FairseqDataclass):
 @dataclass
 class OptimizationConfig(FairseqDataclass):
     max_epoch: int = field(
-        default=0, metadata={"help": "force stop training at specified epoch"}
+        default=105, metadata={"help": "force stop training at specified epoch"}
     )
     max_update: int = field(
         default=0, metadata={"help": "force stop training at specified update"}
@@ -587,7 +587,7 @@ class OptimizationConfig(FairseqDataclass):
         },
     )
     clip_norm: float = field(
-        default=0.0, metadata={"help": "clip threshold of gradients"}
+        default=1.0, metadata={"help": "clip threshold of gradients"}
     )
     sentence_avg: bool = field(
         default=False,
@@ -639,7 +639,7 @@ class CheckpointConfig(FairseqDataclass):
         },
     )
     continue_once: Optional[str] = field(
-        default=None,
+        default="checkpoint_last.pt",
         metadata={
             "help": "continues from this checkpoint, unless a checkpoint indicated in 'restore_file' option is present"
         },
@@ -677,7 +677,7 @@ class CheckpointConfig(FairseqDataclass):
         },
     )
     save_interval: int = field(
-        default=1, metadata={"help": "save a checkpoint every N epochs"}
+        default=10, metadata={"help": "save a checkpoint every N epochs"}
     )
     save_interval_updates: int = field(
         default=0, metadata={"help": "save a checkpoint (and validate) every N updates"}

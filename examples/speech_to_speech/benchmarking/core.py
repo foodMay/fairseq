@@ -23,7 +23,8 @@ logger = logging.getLogger(__name__)
 
 
 torch.manual_seed(1)
-torch.set_deterministic(True)
+# torch.set_deterministic(True)
+torch.use_deterministic_algorithms(True)
 
 
 class BenchmarkingBase(nn.Module):
